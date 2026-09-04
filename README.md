@@ -130,7 +130,7 @@ case_study
 
 ## Prompts Collection
 
-The ```prompts`` collection stores the prompt template used by the application.
+The ```prompts``` collection stores the prompt template used by the application.
 
 Example document:
 ```bash
@@ -263,3 +263,167 @@ Response
 ```
 
 The order of the responses corresponds to the order of the inputs provided in the request.
+
+---
+
+## AI API Integration
+
+The project uses Google's Gemini API through its OpenAI-compatible API interface.
+
+The OpenAI Python SDK is used as the client library, while the Gemini OpenAI-compatible endpoint is configured as the API base URL.
+
+The API key is loaded from the following environment variable:
+```bash
+GEMINI_API_KEY
+```
+This keeps the API key separate from the application source code.
+
+---
+
+## Running the Application
+
+Activate the virtual environment:
+```bash
+venv\Scripts\activate
+```
+
+Run the Flask application:
+```bash
+python app.py
+```
+
+The application will run at:
+```bash
+http://127.0.0.1:5000
+```
+
+---
+
+## Testing Using Postman
+
+The APIs can be tested using Postman.
+
+# Single Request
+
+Method:
+```bash
+POST
+```
+
+URL:
+```bash
+http://127.0.0.1:5000/chat
+```
+
+Select:
+```bash
+Body → raw → JSON
+```
+
+Request:
+```bash
+{
+  "userInput": "What is Java?"
+}
+```
+
+# Batch Request
+
+Method:
+```bash
+POST
+```
+
+URL:
+```bash
+http://127.0.0.1:5000/chat/batch
+```
+
+Select:
+```bash
+Body → raw → JSON
+```
+
+Request:
+```bash
+{
+  "userInputs": [
+    "What is Java?",
+    "What is MongoDB?",
+    "What is Flask?"
+  ]
+}
+```
+
+---
+
+## Database Verification
+
+MongoDB Compass can be used to verify the stored data.
+
+Connection:
+```bash
+mongodb://localhost:27017/
+```
+
+Database:
+```bash
+case_study
+```
+
+Collections:
+```bash
+prompts
+history
+```
+
+The ```prompts``` collection contains the prompt template, while the ```history``` collection contains the processed user inputs, prompts, and AI responses.
+
+---
+
+## Dependencies
+
+The project's Python dependencies are stored in:
+```bash
+requirements.txt
+```
+
+Install all dependencies using:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Assignment Requirements Covered
+
+| Requirement | Implementation |
+|---|---|
+| Python | Python backend |
+| Flask Framework | Flask REST API |
+| MongoDB | `case_study` database |
+| Prompt storage | `prompts` collection |
+| Prompt template | `Education_Prompt` document |
+| User input replacement | `{{userInput}}` replacement |
+| AI API call | Gemini API |
+| Single input endpoint | `POST /chat` |
+| Request/response history | `history` collection |
+| Multiple input endpoint | `POST /chat/batch` |
+| Independent processing | Separate prompt for each input |
+| Asynchronous processing | `asyncio.to_thread()` and `asyncio.gather()` |
+| Ordered responses | Responses returned in input order |
+| JSON response | Flask JSON response |
+
+---
+
+## Conclusion
+
+This project implements a Flask-based backend that integrates MongoDB with an AI API.
+
+It supports individual and batch user inputs, retrieves prompt templates dynamically from MongoDB, processes batch requests asynchronously, generates AI responses, and stores the request and response history in MongoDB.
+
+```text
+**That's the version I'd use for your submission.** It stays focused on the assignment req
+```
+
+---
