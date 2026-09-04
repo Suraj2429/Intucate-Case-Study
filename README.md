@@ -41,7 +41,6 @@ The application supports both single user inputs and batch processing of multipl
 Case Study/
 │
 ├── app.py
-├── check_models.py
 ├── requirements.txt
 ├── .env
 ├── .gitignore
@@ -423,7 +422,9 @@ This project implements a Flask-based backend that integrates MongoDB with an AI
 It supports individual and batch user inputs, retrieves prompt templates dynamically from MongoDB, processes batch requests asynchronously, generates AI responses, and stores the request and response history in MongoDB.
 
 ```text
-**That's the version I'd use for your submission.** It stays focused on the assignment req
+
+**That's the version I'd use for your submission.** It stays focused on the assignment requirements and doesn't claim unnecessary features.
+
 ```
 
 ---
